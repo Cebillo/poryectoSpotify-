@@ -7,17 +7,18 @@ from rich.prompt import Prompt
 import time
  
 # --- CREDENCIALES ---
-CLIENT_ID = "tu_client_id_real_aqui"
-CLIENT_SECRET = "tu_client_secret_real_aqui"
-REDIRECT_URI = "https://www.google.com/"
- 
+
+CLIENT_ID = "ae7be3d7a3024e9f81466ec3e859f089"
+CLIENT_SECRET = "72f293b4fa4f46a880d08abc34388203"
+REDIRECT_URI = "https://www.google.com"
+ #permisos del programa
 SCOPES = (
     "user-library-read user-modify-playback-state user-read-playback-state "
     "playlist-read-private playlist-read-collaborative"
 )
- 
+#color-estilo
 console = Console()
- 
+ #Cliente armado con credenciales y permisos
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
     client_id=CLIENT_ID,
     client_secret=CLIENT_SECRET,
@@ -28,7 +29,7 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
 # ──────────────────────────────────────────
 # UTILIDADES VISUALES
 # ──────────────────────────────────────────
- 
+ #etiquetas visuales
 def mostrar_logo():
     console.print()
     console.print("[bold green]  ╔══════════════════════════════════════╗[/bold green]")
@@ -37,7 +38,7 @@ def mostrar_logo():
     console.print("[bold green]  ╚══════════════════════════════════════╝[/bold green]")
     console.print()
  
- 
+ #10 bloques
 def barra_volumen(vol_percent):
     """Convierte volumen 0-100 en una barra visual de 10 bloques."""
     bloques = round(vol_percent / 10)
